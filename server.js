@@ -66,27 +66,9 @@ app.use('/owner',ownerLoginRoutes)
 app.use('/owner-admin',ownerAdminRoutes)
 
 
-// app.use('/video',videoRoutes)
-// app.use('/tasks',taskRoutes)
+app.get('/',async (req,res) => {
 
-const {createTasksForThisWeakV2} = require('./controllers/taskController')
-
-app.get('/test-tasks', async (req,res)=>{
-    await createTasksForThisWeakV2()
-    res.status(200).json({message:'done successfully'})
-})
-
-const postModel = require('./models/post')
-const taskModel = require('./models/task')
-const videoModel = require('./models/videos')
-const packageModel = require('./models/package')
-
-app.get('/clear-data',async (req,res) => {
-    await postModel.deleteMany()
-    await taskModel.deleteMany()
-    await videoModel.deleteMany()
-    await packageModel.deleteMany()
-    res.status(200).json({message:'done successfully'})
+    res.status(200).json("<h1>welcome to viral backend ! ! ! ! !</h1>")
 })
 
 
